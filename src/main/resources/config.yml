@@ -1,0 +1,66 @@
+global:
+  #Prefix shown on commands and messages from the plugin
+  prefix: "&f[&3&lMoonbyte&f] "
+  #Info shown on joining and in the tab
+  news: "[Moonbyte]"
+  #No-permission message
+  no-permission-message: "&cYou're not allowed to do this!"
+  world-created-on-date: "1/27/2020"
+  no-permission-message-donate: "&cYou're not allowed to do this! Only donators have access to this command. To donate please visit https://moonbyte.net/anarchy"
+  help-lines:
+    - '&8&m---------------[-&r &e&lMoonbyte&6&l Anarchy &8&m-]---------------&r'
+    - ' '
+    - '  &6/kill &7An easy way to reset back to spawn.'
+    - '  &6/tps &7Displays the server TPS.'
+    - '  &6/discord &7Gives the Discord invite link.'
+    - '  &6/wiki &7Gives the server wiki link.'
+    - '  &6/msg <player> <message> &7Private message a player.'
+    - '  &6/pm & /w <player> <message> &7Its basically /msg'
+    - '  &6/r <message> &7Reply back to the last player you messaged.'
+    - '  &6/party &7Shows party help to create a chat party.'
+    - '  &6/p &7Sends a message in party chat.'
+    - '  &6/ignore &7Toggle mute a player. Do this to annoying players.'
+    - '  &6/ignorelist &7Shows the players you have ignored.'
+    - '  &6/togglechat &7Toggle global chat.'
+    - '  &6/toggletells &7Toggles whispers / private messages.'
+    - '  &6/toggledeathmsg &7Toggle death messages.'
+    - '  &6/togglejoinmsg &7Toggle join / leave messages.'
+    - '  &6/nc &7A donator only command, changes your players name.'
+    - ' '
+    - '&8&m-----------------------------------------&r'
+links:
+  discord: "https://discord.gg/KSVzWKNYBP"
+  discord-message: "&6Join our Discord server: &c"
+  wiki-url: "https://moonbyteus.fandom.com/wiki/Moonbyte.us_Wiki"
+  wiki-url-message: "&6View the server Wiki : &c"
+join-messages:
+  #Messages
+  join: "&e<player> joined the game"
+  leave: "&e<player> left the game"
+  muted: "&bYou won't see join/leave messages anymore."
+  unmuted: "&bYou now will see join/leave messages."
+welcome-message:
+  message: "&bWelcome &6<player> &bto moonbyte.us! Use /help to show all of the available commands."
+nc-command:
+  usage-message: "&7Use /nc <color> or /nc <format>.\n
+  List of color codes: &0black&7, &1darkblue&7, &2darkgreen&7, &3darkaqua&7, &4red&7, &5darkpurple&7, &6gold&7, &7gray&7, &8darkgray&7, &9blue&7, &agreen&7, &baqua&7, &dlightpurple&7, &eyellow&7, &fwhite&7.\n
+  List of formatting codes: &lbold&7, &r&kIII&r magic &kIII&r&7, &nunderline&7, &mstrike&7, &oitalic&7.\n
+  Use /nc reset to reset your nickname."
+  error-message: "&cSpecified color doesn't exist!"
+  success-message: "&7You have changed your nickname color to &6<color>&7!"
+  reset-message: "&7Your color nickname has been reset successfully!"
+dupes:
+  piglin-dupe-enabled: false
+speed-limit:
+  max-meters-per-second: 45
+  allow-falling-bypass: true
+  only-flying: false
+  only-on-ground: false
+  too-fast-message: "&cWhoop! Too Fast!"
+  put-back-on-vehicle: false
+  worlds:
+    - world
+    - world-nether
+    - world-the-end
+signs:
+  color-character: "&"
