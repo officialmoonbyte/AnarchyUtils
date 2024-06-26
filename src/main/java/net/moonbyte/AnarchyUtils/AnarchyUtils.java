@@ -4,11 +4,13 @@ import net.moonbyte.AnarchyUtils.Commands.*;
 import net.moonbyte.AnarchyUtils.Config.StaticConfig;
 import net.moonbyte.AnarchyUtils.Dupes.PiglinDupe;
 import net.moonbyte.AnarchyUtils.Events.*;
-import net.moonbyte.AnarchyUtils.Helpers.ConfigurationUtils;
+import net.moonbyte.AnarchyUtils.Helpers.ConfigUtil;
 import net.moonbyte.AnarchyUtils.Listeners.SpeedLimitListener;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
 import java.util.logging.Logger;
 
 public final class AnarchyUtils extends JavaPlugin {
@@ -34,7 +36,7 @@ public final class AnarchyUtils extends JavaPlugin {
         // This was used during the 1.16 update to allow access to the patched paper dupe.
         // This is now disabled on moonbyte and will remain disabled. Any future dupes
         // Should be added here.
-        if (ConfigurationUtils.getConfig().getBoolean("dupes.donkey-dupe-enabled")) {
+        if (ConfigUtil.Dupes_DonkeyDupeEnabled) {
             Bukkit.getServer().getPluginManager().registerEvents(new PiglinDupe(), this);
             log.info("Anarchy Utils has the Minecart dupe enabled!");
         }
@@ -56,18 +58,18 @@ public final class AnarchyUtils extends JavaPlugin {
         log.info("Disabled Anarchy Utils!");
     }
 
-    public static AnarchyUtils getPlugin() {
+    public static @NotNull AnarchyUtils getPlugin() {
         return getPlugin(AnarchyUtils.class);
     }
 
     private void registerCommands() {
-        this.getCommand("nc").setExecutor(new ChangeNameColorCommand());
-        this.getCommand("discord").setExecutor(new DiscordCommand());
-        this.getCommand("help").setExecutor(new HelpCommand());
-        this.getCommand("kill").setExecutor(new KillCommand());
-        this.getCommand("togglejoinmsg").setExecutor(new ToggleJoinMessagesCommand());
-        this.getCommand("wiki").setExecutor(new WikiCommand());
-        this.getCommand("worldstatus").setExecutor(new WorldStatusCommand());
+        Objects.requireNonNull(this.getCommand("nc")).setExecutor(new ChangeNameColorCommand());
+        Objects.requireNonNull(this.getCommand("discord")).setExecutor(new DiscordCommand());
+        Objects.requireNonNull(this.getCommand("help")).setExecutor(new HelpCommand());
+        Objects.requireNonNull(this.getCommand("kill")).setExecutor(new KillCommand());
+        Objects.requireNonNull(this.getCommand("togglejoinmsg")).setExecutor(new ToggleJoinMessagesCommand());
+        Objects.requireNonNull(this.getCommand("wiki")).setExecutor(new WikiCommand());
+        Objects.requireNonNull(this.getCommand("worldstatus")).setExecutor(new WorldStatusCommand());
     }
 
     private void registerEvents() {

@@ -1,7 +1,7 @@
 package net.moonbyte.AnarchyUtils.Commands;
 
 import net.moonbyte.AnarchyUtils.AnarchyUtils;
-import net.moonbyte.AnarchyUtils.Helpers.ConfigurationUtils;
+import net.moonbyte.AnarchyUtils.Helpers.ConfigUtil;
 import net.moonbyte.AnarchyUtils.Helpers.PlayerUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -10,7 +10,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
@@ -38,16 +37,16 @@ public class WorldStatusCommand implements CommandExecutor {
         if (commandSender instanceof Player){
 
             Player player = ((Player)commandSender).getPlayer();
-            String createdOnDate = ConfigurationUtils.getConfig().getString("global.world-created-on-date");
+            String createdOnDate = ConfigUtil.Global_WorldCreatedOnDate;
 
             PlayerUtils.sendMessage(player,"Server World Status");
             PlayerUtils.sendRawMessage(player, "");
             PlayerUtils.sendRawMessage(player, "This server was created on " + createdOnDate);
             PlayerUtils.sendRawMessage(player, "");
             PlayerUtils.sendRawMessage(player, "In that time period, here is how big the world file's are.");
-            PlayerUtils.sendRawMessage(player, "Overworld : " + String.valueOf(worldSize) + "Gb's");
-            PlayerUtils.sendRawMessage(player, "Nether : " + String.valueOf(netherSize) + "Gb's");
-            PlayerUtils.sendRawMessage(player, "End : " + String.valueOf(endSize) + "Gb's");
+            PlayerUtils.sendRawMessage(player, "Overworld : " + worldSize + "Gb's");
+            PlayerUtils.sendRawMessage(player, "Nether : " + netherSize + "Gb's");
+            PlayerUtils.sendRawMessage(player, "End : " + endSize + "Gb's");
             PlayerUtils.sendRawMessage(player, "");
             PlayerUtils.sendRawMessage(player, "Total amount of player's that joined this server : " + this.GetPlayerCount());
         }

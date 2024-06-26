@@ -1,6 +1,6 @@
 package net.moonbyte.AnarchyUtils.Dupes;
 
-import net.moonbyte.AnarchyUtils.Helpers.ConfigurationUtils;
+import net.moonbyte.AnarchyUtils.Helpers.ConfigUtil;
 import org.bukkit.Material;
 import org.bukkit.entity.Ageable;
 import org.bukkit.entity.EntityType;
@@ -37,7 +37,7 @@ public class PiglinDupe implements Listener {
                             || offhandItem.getType() == Material.GOLDEN_CARROT
                             || offhandItem.getType() == Material.GOLDEN_APPLE) {
 
-                        int timesToDupe = ConfigurationUtils.getConfig().getInt("dupes.piglin-drop-rate");
+                        int timesToDupe = ConfigUtil.Dupes_PiglinDropRate;
                         for (int i = 0; i < timesToDupe; i++) {
                             entity.getWorld().dropItemNaturally(entity.getLocation(), itemToDupe);
                         }

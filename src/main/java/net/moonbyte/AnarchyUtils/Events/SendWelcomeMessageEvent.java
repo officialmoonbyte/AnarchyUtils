@@ -1,6 +1,6 @@
 package net.moonbyte.AnarchyUtils.Events;
 
-import net.moonbyte.AnarchyUtils.Helpers.ConfigurationUtils;
+import net.moonbyte.AnarchyUtils.Helpers.ConfigUtil;
 import net.moonbyte.AnarchyUtils.Helpers.PlayerUtils;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -10,7 +10,8 @@ public class SendWelcomeMessageEvent implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         if (!event.getPlayer().hasPlayedBefore()){
-            PlayerUtils.sendMessage(event.getPlayer(), ConfigurationUtils.getConfig().getString("welcome-message.message").replaceAll("<player>", event.getPlayer().getName()));
+            assert ConfigUtil.WelcomeMessage_Message != null;
+            PlayerUtils.sendMessage(event.getPlayer(), ConfigUtil.WelcomeMessage_Message.replaceAll("<player>", event.getPlayer().getName()));
         }
     }
 }

@@ -1,6 +1,6 @@
 package net.moonbyte.AnarchyUtils.Commands;
 
-import net.moonbyte.AnarchyUtils.Helpers.ConfigurationUtils;
+import net.moonbyte.AnarchyUtils.Helpers.ConfigUtil;
 import net.moonbyte.AnarchyUtils.Helpers.PlayerUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,10 +12,10 @@ public class WikiCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
         Player player = (Player)commandSender;
-        String wikiUrlMessage = ConfigurationUtils.getConfig().getString("links.wiki-url-message");
-        String wikiUrl = ConfigurationUtils.getConfig().getString("links.wiki-url");
+        String wikiUrlMessage = ConfigUtil.Links_WikiURLMessage;
+        String wikiUrl = ConfigUtil.Links_WikiURL;
 
-        PlayerUtils.sendMessage(player, wikiUrlMessage+wikiUrl);
+        PlayerUtils.sendMessage(player, wikiUrlMessage + wikiUrl);
         return true;
     }
 }

@@ -1,6 +1,6 @@
 package net.moonbyte.AnarchyUtils.Commands;
 
-import net.moonbyte.AnarchyUtils.Helpers.ConfigurationUtils;
+import net.moonbyte.AnarchyUtils.Helpers.ConfigUtil;
 import net.moonbyte.AnarchyUtils.Helpers.PlayerUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -20,12 +20,12 @@ public class ToggleJoinMessagesCommand implements CommandExecutor {
 
         if(muted.contains(player)){
             muted.remove(player);
-            String joinMessagesUnmuteNotification = ConfigurationUtils.getConfig().getString("join-messages.unmuted");
+            String joinMessagesUnmuteNotification = ConfigUtil.JoinMessages_Unmuted;
 
             PlayerUtils.sendMessage(player, joinMessagesUnmuteNotification);
         }else{
             muted.add(player);
-            String joinMessagesAddNotification = ConfigurationUtils.getConfig().getString("join-messages.muted");
+            String joinMessagesAddNotification = ConfigUtil.JoinMessages_Muted;
             PlayerUtils.sendMessage(player, joinMessagesAddNotification);
         }
 

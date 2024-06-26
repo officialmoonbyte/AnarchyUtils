@@ -1,6 +1,6 @@
 package net.moonbyte.AnarchyUtils.Commands;
 
-import net.moonbyte.AnarchyUtils.Helpers.ConfigurationUtils;
+import net.moonbyte.AnarchyUtils.Helpers.ConfigUtil;
 import net.moonbyte.AnarchyUtils.Helpers.PlayerUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 
+@SuppressWarnings("deprecation")
 public class ChangeNameColorCommand implements CommandExecutor {
     public static HashMap<Player, String> customname = new HashMap<>();
 
@@ -19,7 +20,7 @@ public class ChangeNameColorCommand implements CommandExecutor {
         Player p = (Player)commandSender;
 
         if (!p.hasPermission("Moonbyte.donator")){
-            PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("global.no-permission-message-donate"));
+            PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation);
             return true;
         }
 
@@ -27,7 +28,7 @@ public class ChangeNameColorCommand implements CommandExecutor {
         char nameStyle = 0;
 
         if(strings.length == 0){
-            PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.usage-message"));
+            PlayerUtils.sendMessage(p, ConfigUtil.NcCommand_UsageFinal);
         }else{
             String color = strings[0];
             String style = null;
@@ -39,79 +40,94 @@ public class ChangeNameColorCommand implements CommandExecutor {
             // here goes the monkey code
             if(color.equalsIgnoreCase("black")){
                 nameColor = ChatColor.BLACK.getChar();
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "black"));
+                assert ConfigUtil.NoPermissionMessageDonation != null;
+                PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "black"));
             }else if(color.equalsIgnoreCase("darkblue")){
                 nameColor = ChatColor.DARK_BLUE.getChar();
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "darkblue"));
+                assert ConfigUtil.NoPermissionMessageDonation != null;
+                PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "darkblue"));
             }else if(color.equalsIgnoreCase("darkgreen")){
                 nameColor = ChatColor.DARK_GREEN.getChar();
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "darkgreen"));
+                assert ConfigUtil.NoPermissionMessageDonation != null;
+                PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "darkgreen"));
             }else if(color.equalsIgnoreCase("darkaqua")){
                 nameColor = ChatColor.DARK_AQUA.getChar();
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "darkaqua"));
+                assert ConfigUtil.NoPermissionMessageDonation != null;
+                PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "darkaqua"));
             }else if(color.equalsIgnoreCase("red")){
                 nameColor = ChatColor.RED.getChar();
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "red"));
+                assert ConfigUtil.NoPermissionMessageDonation != null;
+                PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "red"));
             }else if(color.equalsIgnoreCase("darkpurple")){
                 nameColor = ChatColor.DARK_PURPLE.getChar();
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "darkpurple"));
+                assert ConfigUtil.NoPermissionMessageDonation != null;
+                PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "darkpurple"));
             }else if(color.equalsIgnoreCase("gold")){
                 nameColor = ChatColor.GOLD.getChar();
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "gold"));
+                assert ConfigUtil.NoPermissionMessageDonation != null;
+                PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "gold"));
             }else if(color.equalsIgnoreCase("gray")){
                 nameColor = ChatColor.GRAY.getChar();
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "gray"));
+                assert ConfigUtil.NoPermissionMessageDonation != null;
+                PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "gray"));
             }else if(color.equalsIgnoreCase("darkgray")){
                 nameColor = ChatColor.DARK_GRAY.getChar();
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "darkgray"));
+                assert ConfigUtil.NoPermissionMessageDonation != null;
+                PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "darkgray"));
             }else if(color.equalsIgnoreCase("blue")){
+                assert ConfigUtil.NoPermissionMessageDonation != null;
                 nameColor = ChatColor.BLUE.getChar();
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "blue"));
+                PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "blue"));
             }else if(color.equalsIgnoreCase("green")){
+                assert ConfigUtil.NoPermissionMessageDonation != null;
                 nameColor = ChatColor.GREEN.getChar();
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "green"));
+                PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "green"));
             }else if(color.equalsIgnoreCase("aqua")){
                 nameColor = ChatColor.AQUA.getChar();
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "aqua"));
+                assert ConfigUtil.NoPermissionMessageDonation != null;
+                PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "aqua"));
             }else if(color.equalsIgnoreCase("lightpurple")){
                 nameColor = ChatColor.LIGHT_PURPLE.getChar();
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "lightpurple"));
+                assert ConfigUtil.NoPermissionMessageDonation != null;
+                PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "lightpurple"));
             }else if(color.equalsIgnoreCase("yellow")){
                 nameColor = ChatColor.YELLOW.getChar();
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "yellow"));
+                assert ConfigUtil.NoPermissionMessageDonation != null;
+                PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "yellow"));
             }else if(color.equalsIgnoreCase("white")){
                 nameColor = ChatColor.WHITE.getChar();
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "white"));
+                assert ConfigUtil.NoPermissionMessageDonation != null;
+                PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "white"));
             }else if(color.equalsIgnoreCase("darkred")){
                 nameColor = ChatColor.DARK_RED.getChar();
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "white"));
+                assert ConfigUtil.NoPermissionMessageDonation != null;
+                PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "white"));
             }else if(color.equalsIgnoreCase("reset")) {
-                nameColor = 0;
-                PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.reset-message"));
-            }
-            else{
-                nameColor = 0;
+                PlayerUtils.sendMessage(p, ConfigUtil.NcCommand_ResetMessage);
             }
 
             if (style != null){
                 //Check for the style
                 if(style.equalsIgnoreCase("bold")){
                     nameStyle = ChatColor.BOLD.getChar();
-                    PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "bold"));
+                    assert ConfigUtil.NoPermissionMessageDonation != null;
+                    PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "bold"));
                 }else if(style.equalsIgnoreCase("magic")){
                     nameStyle = ChatColor.MAGIC.getChar();
-                    PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "magic"));
+                    assert ConfigUtil.NoPermissionMessageDonation != null;
+                    PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "magic"));
                 }else if(style.equalsIgnoreCase("underline")){
                     nameStyle = ChatColor.UNDERLINE.getChar();
-                    PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "underline"));
+                    assert ConfigUtil.NoPermissionMessageDonation != null;
+                    PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "underline"));
                 }else if(style.equalsIgnoreCase("strike")){
                     nameStyle = ChatColor.STRIKETHROUGH.getChar();
-                    PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "strike"));
+                    assert ConfigUtil.NoPermissionMessageDonation != null;
+                    PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "strike"));
                 }else if(style.equalsIgnoreCase("italic")){
                     nameStyle = ChatColor.ITALIC.getChar();
-                    PlayerUtils.sendMessage(p, ConfigurationUtils.getConfig().getString("nc-command.success-message").replaceAll("<color>", "italic"));
-                }else{
-                    nameStyle = 0;
+                    assert ConfigUtil.NoPermissionMessageDonation != null;
+                    PlayerUtils.sendMessage(p, ConfigUtil.NoPermissionMessageDonation.replaceAll("<color>", "italic"));
                 }
             }
         }
