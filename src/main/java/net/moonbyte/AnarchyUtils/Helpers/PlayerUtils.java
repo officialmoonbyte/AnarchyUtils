@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 
 public class PlayerUtils {
     public static void sendMessage(Player player, String message) {
-        String prefix = ConfigurationUtils.getConfig().getString("global.prefix");
+        String prefix = ConfigUtil.getConfig().getString("global.prefix");
 
         if (StaticConfig.usingPAPI) {
             String mout = ChatColor.translateAlternateColorCodes('&', prefix + message);

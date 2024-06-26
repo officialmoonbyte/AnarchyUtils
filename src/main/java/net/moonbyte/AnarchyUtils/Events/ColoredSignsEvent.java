@@ -1,12 +1,14 @@
 package net.moonbyte.AnarchyUtils.Events;
 
-import net.moonbyte.AnarchyUtils.Helpers.ConfigurationUtils;
+import net.moonbyte.AnarchyUtils.Helpers.ConfigUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.SignChangeEvent;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,7 +27,7 @@ public class ColoredSignsEvent implements Listener {
     }
 
     private String getFormattedSignString(final Player player, final String line) {
-        final boolean permissions = ConfigurationUtils.getConfig().getBoolean("options.use permissions");
+        final boolean permissions = ConfigUtil.Options_UsePermission;
         if (!permissions) {
             return this.replaceAll(line);
         }
@@ -76,21 +78,25 @@ public class ColoredSignsEvent implements Listener {
         return line;
     }
 
-    private String replaceColorsOnly(final String line) {
+    @Contract("_ -> new")
+    private @NotNull String replaceColorsOnly(final String line) {
         return this.replaceSpecific(line, "0123456789AaBbCcDdEeFf");
     }
 
-    private String replaceFormattingOnly(final String line) {
+    @Contract("_ -> new")
+    private @NotNull String replaceFormattingOnly(final String line) {
         return this.replaceSpecific(line, "KkLlMmNnOoRr");
     }
 
-    private String replaceAll(final String line) {
-        final char character = ConfigurationUtils.getConfig().getString("signs.color-character").charAt(0);
+    private @NotNull String replaceAll(final String line) {
+        assert ConfigUtil.Signs_ColorCharactor != null;
+        final char character = ConfigUtil.Signs_ColorCharactor.charAt(0);
         return ChatColor.translateAlternateColorCodes(character, line);
     }
 
-    private String replaceSpecific(final String line, final String specific) {
-        final char character = ConfigurationUtils.getConfig().getString("signs.color-character").charAt(0);
+    @Contract("_, _ -> new")
+    private @NotNull String replaceSpecific(final @NotNull String line, final String specific) {
+        final char character = ConfigUtil.Signs_ColorCharactor.charAt(0);
         final char[] charArray = line.toCharArray();
         for (int i = 0; i < charArray.length - 1; ++i) {
             final boolean hasColor1 = charArray[i] == character;

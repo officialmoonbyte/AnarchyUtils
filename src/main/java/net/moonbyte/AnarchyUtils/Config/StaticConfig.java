@@ -8,6 +8,6 @@ import java.util.Set;
 
 public class StaticConfig {
     public static boolean usingPAPI = false;
-    public static HashMap<String, Location> locations = new HashMap<String, Location>();
-    public static Set<String> tplocations = new HashSet<String>();
+    public static HashMap<String, Location> locations = new HashMap<>();
+    public static Set<String> tplocations = new HashSet<>();
 }
