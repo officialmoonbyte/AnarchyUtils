@@ -1,0 +1,30 @@
+name: AnarchyUtils
+version: '${project.version}'
+main: net.moonbyte.AnarchyUtils.AnarchyUtils
+api-version: '1.20'
+authors: [ moonbyte ]
+description: Anarchy Utils for the server moonbyte.us, these are custom anarchy utilities to combine plugins already installed on the server to reduce the plugin amount.
+website: https://moonbyte.us/anarchy
+depend: [PlaceholderAPI]
+commands:
+  discord:
+    description: Displays the Discord Server
+    usage: /discord
+  togglejoinmsg:
+    description: Toggle player join messages
+    usage: /togglejoinmsg
+  nc:
+    description: Changes your name color and style
+    usage: /nc
+  wiki:
+    description: Displays the Wiki URL
+    usage: /wiki
+  help:
+    description: Shows all of the usable commands for players
+    usage: /help
+  kill:
+    description: Off yourself idiot
+    usage: /kill
+  WorldStatus:
+    description: Shows the status of the world.
+    usage: /worldstatus
